@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>E-Commerce Platform</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="lib/bootstrap.css" rel="stylesheet">
+        <link href="lib/sticky-footer-navbar.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <style>
+        .container { margin-top: 0 !important; padding-top: 0 !important }
+        form { width: 600px; margin: 0 auto; }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Admin</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#Category" role="tab" data-toggle="tab">Category</a></li>
+                        <li class=""><a href="#SubCategory" role="tab" data-toggle="tab">Sub Category</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="Category">
+                    <form name="CategoryForm" id="CategoryForm" class="form-horizontal" action="/addCategory">
+                        <div class="modal-header">
+                            <h4>Add Category</h4>
+                        </div>
+                        <div class="modal-body">                            
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="name">Name</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="is_active">Is Active</label>
+                                <div class="col-md-7">
+                                    <select id="is_active" name="is_active" class="form-control" required>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="thumbnail">Thumbnail Image</label>
+                                <div class="col-md-7">
+                                    <input type="file" id="thumbnail" name="thumbnail" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="description">Description</label>
+                                <div class="col-md-7">
+                                    <textarea id="description" name="description" class="form-control" rows="2" cols="15"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="image">Image</label>
+                                <div class="col-md-7">
+                                    <input type="file" id="image" name="image" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="pageTitle">Page Title</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="pageTitle" name="pageTitle" class="form-control" placeholder="Page Title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="metaKeywords">Meta Keywords</label>
+                                <div class="col-md-7">
+                                    <textarea id="metaKeywords" name="metaKeywords" class="form-control" rows="2" cols="15"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="metaDescription">Meta Description</label>
+                                <div class="col-md-7">
+                                    <textarea id="metaDescription" name="metaDescription" class="form-control" rows="2" cols="15"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label" for="include_in_menu">Include in Navigation Menu</label>
+                                <div class="col-md-7">
+                                    <select id="include_in_menu" name="include_in_menu" class="form-control" required>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="SubCategory">
+                    <h1>Sub Category</h1>
+                </div>
+            </div>
+        </div>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/bootstrap.js"></script>
+        <script>
+            document.getElementById("CategoryForm").onsubmit = function(e) {
+                alert('submit');
+                e.preventDefault();
+                var f = e.target,
+                    data = new FormData(f),
+                    xhr = new XMLHttpRequest();
+
+                console.log(data);
+                xhr.open("POST", f.action, true);
+                xhr.onload = function(e) {
+                    if (xhr.status == 200) {
+                        console.log("Success");
+                    } else {
+                        console.log("Error " + xhr.status);
+                    }
+                };
+                xhr.send(data);
+            }
+        </script>
+    </body>
+</html>

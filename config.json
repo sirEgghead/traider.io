@@ -1,0 +1,29 @@
+{
+    "db_config": {
+        "host": "localhost",
+        "port": "27017",
+        "dbName": "ecomm",
+        "username": "",
+        "password": "" 
+    },
+    "server_config": {
+        "port": "5000"
+    },
+    "logger": {
+        "logAppender": "file",
+        "logFilename": "F:/ecomm/ecomm.log",
+        "logCategory": "ECOMM",
+        "logLevel": "DEBUG",
+        "maxLogSize": "75MB",
+        "backups": 10
+    },
+    "common": {
+        "parentPath": "F:/ecomm",
+        "projectName": "ecommerce"
+    },
+    "session": {
+        "key": "asdklghakjhsadd21721973hsa1892",
+        "maxAge": 9000000000,
+        "expires": 9000000000
+    }
+}

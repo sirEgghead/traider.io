@@ -1,29 +1,22 @@
 {
-    "name": "traider.io",
-    "description": "",
+    "name": "ECOMM",
+    "description": "Ecommerce Platform",
+    "author": "Ramesh Meduri",
     "version": "0.0.1",
-    "main": "traider.js",
-    "author": {
-        "name": "john",
-        "email": "john@traider.io"
+    "private": true,
+    "scripts": {
+        "start": "node server/server.js"
     },
-    "keywords": [],
-    "licenses": {
-        "type": "mit"
-    },  
     "dependencies": {
-        "express": "3.x" ,
-        "mongodb": "1.3.23",
-        "connect-mongo" : "0.4.1",
-        "express-session" : "*" ,
-        "cookie-parser" : "*" ,
-        "request-json" : "*"
-      },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:EastpointSoftware/traider.io.git"
-    },
-    "bugs": {
-        "url": "https://github.com/EastpointSoftware/traider.io/issues"
+        "connect-flash": "0.1.1",
+        "crypto": "0.0.3",
+        "ejs": "1.0.0",
+        "express": "3.4.4",
+        "fs-extra": "^0.11.0",
+        "log4js": "0.6.16",
+        "mongoose": "3.8.15",
+        "passport": "0.2.0",
+        "passport-local": "1.0.0",
+        "formidable": "1.0.15"
     }
 }
