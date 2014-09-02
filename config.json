@@ -11,7 +11,7 @@
     },
     "logger": {
         "logAppender": "file",
-        "logFilename": "F:/ecomm/ecomm.log",
+        "logFilename": "C:/Users/rmeduri/Documents/My Web Sites/traider.io/ecomm.log",
         "logCategory": "ECOMM",
         "logLevel": "DEBUG",
         "maxLogSize": "75MB",

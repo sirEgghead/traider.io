@@ -119,8 +119,7 @@
         <script src="lib/jquery.js"></script>
         <script src="lib/bootstrap.js"></script>
         <script>
-            document.getElementById("CategoryForm").onsubmit = function(e) {
-                alert('submit');
+            document.getElementById("CategoryForm").onsubmit = function(e) {                
                 e.preventDefault();
                 var f = e.target,
                     data = new FormData(f),
@@ -130,7 +129,7 @@
                 xhr.open("POST", f.action, true);
                 xhr.onload = function(e) {
                     if (xhr.status == 200) {
-                        console.log("Success");
+                        alert("New Category Saved");
                     } else {
                         console.log("Error " + xhr.status);
                     }
