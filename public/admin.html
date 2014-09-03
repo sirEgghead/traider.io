@@ -39,7 +39,7 @@
         <div class="container">
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active in" id="Category">
-                    <form name="CategoryForm" id="CategoryForm" class="form-horizontal" action="/addCategory">
+                    <form name="CategoryForm" id="CategoryForm" class="form-horizontal">
                         <div class="modal-header">
                             <h4>Add Category</h4>
                         </div>
@@ -119,14 +119,16 @@
         <script src="lib/jquery.js"></script>
         <script src="lib/bootstrap.js"></script>
         <script>
-            document.getElementById("CategoryForm").onsubmit = function(e) {                
+            document.getElementById("CategoryForm").onsubmit = function(e) {   
                 e.preventDefault();
+                alert('submit');             
+                
                 var f = e.target,
                     data = new FormData(f),
                     xhr = new XMLHttpRequest();
 
                 console.log(data);
-                xhr.open("POST", f.action, true);
+                xhr.open("POST", "/saveCategory", true);
                 xhr.onload = function(e) {
                     if (xhr.status == 200) {
                         alert("New Category Saved");
@@ -135,6 +137,8 @@
                     }
                 };
                 xhr.send(data);
+
+
             }
         </script>
     </body>
