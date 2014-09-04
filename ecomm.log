@@ -56,3 +56,20 @@
 [2014-09-03 01:37:29.756] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
 [2014-09-03 01:38:09.053] [DEBUG] dao - saveCategory
 [2014-09-03 01:38:09.075] [INFO] dao - Category saved
+[2014-09-03 18:24:10.151] [INFO] connection - ERROR connecting to: mongodb://localhost:27017/ecomm. Error: failed to connect to [localhost:27017]
+[2014-09-03 18:27:20.532] [DEBUG] dao - saveCategory
+[2014-09-03 18:28:22.932] [DEBUG] dao - saveCategory
+[2014-09-03 18:28:41.075] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
+[2014-09-03 18:28:41.299] [DEBUG] dao - saveCategory
+[2014-09-03 18:28:41.487] [INFO] dao - Category saved
+[2014-09-03 19:25:14.937] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
+[2014-09-04 11:02:58.163] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
+[2014-09-04 15:04:42.171] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
+[2014-09-04 16:08:59.141] [DEBUG] dao - saveCategory
+[2014-09-04 16:08:59.150] [ERROR] dao - Category not savedCastError: Cast to ObjectId failed for value "null" at path "parent"
+[2014-09-04 16:18:25.839] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
+[2014-09-04 16:19:28.288] [DEBUG] dao - saveCategory
+[2014-09-04 16:19:28.332] [INFO] dao - Category saved
+[2014-09-04 16:45:24.111] [INFO] connection - DB Connection Created for mongodb://localhost:27017/ecomm
+[2014-09-04 16:52:22.642] [DEBUG] dao - saveCategory
+[2014-09-04 16:52:22.658] [INFO] dao - Category saved

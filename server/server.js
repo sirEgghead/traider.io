@@ -25,5 +25,11 @@ app.get('/admin', function(req, res) {
     res.render('admin.html');
 });
 app.post('/saveCategory', requestProcesser.saveCategory);
+app.get('/getCategories', requestProcesser.getCategories);
+
+
+
+
+
 app.listen(app.get('port'));
 console.log('Server listening on port ' + app.get('port'));

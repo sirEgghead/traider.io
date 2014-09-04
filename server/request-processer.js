@@ -36,3 +36,11 @@ exports.saveCategory = function(req, res) {
         });
     });
 };
+
+
+exports.getCategories = function(req, res) {
+    Dao.getCategories(function(returnValue) {
+        res.json(returnValue);
+    });
+};
+

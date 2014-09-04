@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var CategorySchema = new mongoose.Schema({
+
+var CategorySchema = new Schema({
     name: String,
     isActive: String,
     description: String,
@@ -9,7 +11,8 @@ var CategorySchema = new mongoose.Schema({
     metaDescription: String,
     includeInMenu: String,
     thumbnail: String,
-    image: String
+    image: String,
+    parent:String
 });
 
 module.exports = mongoose.model('Category', CategorySchema);
