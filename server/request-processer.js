@@ -4,11 +4,20 @@ var fs = require('fs-extra');
 var Dao = require("../app/db/dao");
 
 exports.saveCategory = function(req, res) {
+    console.log('exports.saveCategory = function(req, res) {');
     var form = new formidable.IncomingForm();
     var x, y;
     form.parse(req, function(err, fields, files) {
         x = fields;
         y = files;
+
+        console.log('----------------');
+        console.log(fields);
+
+        console.log('----------------');
+        console.log(files);
+
+
     });
     form.on('end', function() {
         var files = this.openedFiles;
@@ -27,6 +36,7 @@ exports.saveCategory = function(req, res) {
             }(file_name));
         });
         var o = x;
+        console.log(o);
         var t = path.resolve(__dirname, '../uploads/' + y.thumbnail.name);
         var i = path.resolve(__dirname, '../uploads/' + y.image.name);
         o.thumbnail = t;

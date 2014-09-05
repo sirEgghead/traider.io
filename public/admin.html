@@ -13,8 +13,9 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
-            .container { margin-top: 0 !important; padding-top: 0 !important }
-            #CategoryForm { display: none; }
+        .container { margin-top: 0 !important; padding-top: 0 !important }
+        #CategoryForm { display: none; }
+        h3{margin-top: 5px!important;}
         </style>
     </head>
     <body>
@@ -31,20 +32,31 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" ng-controller="categoryCtrl">
             <div class="row">
-                <div class="col-md-4">                    
-                    <div id="list" ng-controller="listCtrl">
-                        <button type="button" id="add" class="btn btn-primary" ng-click="add()">Add Category</button><br><br>
+                <div class="col-md-4">
+                    <div id="list">
+                        <div class="row" style="margin-bottom:10px;">
+                            <div class="col-md-4">
+                                <h3>Category</h3>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="btn-group">
+                                    <button type="button" id="addCategory" class="btn btn-default" ng-click="addCategory()">Add</button>
+                                    <button type="button" id="editCategory" class="btn btn-default" ng-click="editCategory()">Edit</button>
+                                    <button type="button" id="removeCategory" class="btn btn-default" ng-click="removeCategory()">Delete</button>
+                                </div>
+                            </div>
+                            <br><br>
+                        </div>                                                
                         <div ya-treeview-breadcrumbs ya-context="context"></div>
                         <div ya-treeview ya-id="myTree" ya-model="model" ya-options="options" ya-context="context">
-                            <span ng-class="{selected: context.selectedNodes.indexOf(node) > -1}">{{ node.$model.label }}</span>
+                            <span ng-class="{selected: context.selectedNodes.indexOf(node) > -1}">{{ node.$model.name }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <form name="CategoryForm" id="CategoryForm" class="form-horizontal">
-                        <input type="hidden" name="parent" id="parent">
+                    <form name="CategoryForm" id="CategoryForm" class="form-horizontal" novalidate ng-submit="saveCategory()">                        
                         <div class="modal-header">
                             <h4>Add Category</h4>
                         </div>
@@ -52,13 +64,13 @@
                             <div class="form-group">
                                 <label class="col-md-5 control-label" for="name">Name</label>
                                 <div class="col-md-7">
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required ng-model="category.name">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-5 control-label" for="is_active">Is Active</label>
+                                <label class="col-md-5 control-label" for="isActive">Is Active</label>
                                 <div class="col-md-7">
-                                    <select id="is_active" name="is_active" class="form-control" required>
+                                    <select id="isActive" name="isActive" class="form-control" required ng-model="category.isActive">
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
@@ -73,7 +85,7 @@
                             <div class="form-group">
                                 <label class="col-md-5 control-label" for="description">Description</label>
                                 <div class="col-md-7">
-                                    <textarea id="description" name="description" class="form-control" rows="2" cols="15"></textarea>
+                                    <textarea id="description" name="description" class="form-control" rows="2" cols="15" ng-model="category.description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -85,25 +97,25 @@
                             <div class="form-group">
                                 <label class="col-md-5 control-label" for="pageTitle">Page Title</label>
                                 <div class="col-md-7">
-                                    <input type="text" id="pageTitle" name="pageTitle" class="form-control" placeholder="Page Title">
+                                    <input type="text" id="pageTitle" name="pageTitle" class="form-control" placeholder="Page Title" ng-model="category.pageTitle">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-5 control-label" for="metaKeywords">Meta Keywords</label>
                                 <div class="col-md-7">
-                                    <textarea id="metaKeywords" name="metaKeywords" class="form-control" rows="2" cols="15"></textarea>
+                                    <textarea id="metaKeywords" name="metaKeywords" class="form-control" rows="2" cols="15" ng-model="category.metaKeywords"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-5 control-label" for="metaDescription">Meta Description</label>
                                 <div class="col-md-7">
-                                    <textarea id="metaDescription" name="metaDescription" class="form-control" rows="2" cols="15"></textarea>
+                                    <textarea id="metaDescription" name="metaDescription" class="form-control" rows="2" cols="15" ng-model="category.metaDescription"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-5 control-label" for="include_in_menu">Include in Navigation Menu</label>
+                                <label class="col-md-5 control-label" for="includeInMenu">Include in Navigation Menu</label>
                                 <div class="col-md-7">
-                                    <select id="include_in_menu" name="include_in_menu" class="form-control" required>
+                                    <select id="includeInMenu" name="includeInMenu" class="form-control" required ng-model="category.includeInMenu">
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
@@ -124,28 +136,5 @@
         <script src="lib/ya-treeview/treeview.js"></script>
         <script src="lib/ya-treeview/treeview-breadcrumbs.js"></script>
         <script src="js/admin.js"></script>
-        <script>
-            document.getElementById("CategoryForm").onsubmit = function(e) {   
-                e.preventDefault();
-                alert('submit');             
-                
-                var f = e.target,
-                    data = new FormData(f),
-                    xhr = new XMLHttpRequest();
-
-                console.log(data);
-                xhr.open("POST", "/saveCategory", true);
-                xhr.onload = function(e) {
-                    if (xhr.status == 200) {
-                        alert("New Category Saved");
-                    } else {
-                        console.log("Error " + xhr.status);
-                    }
-                };
-                xhr.send(data);
-
-
-            }
-        </script>
     </body>
 </html>
