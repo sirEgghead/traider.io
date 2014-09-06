@@ -38,5 +38,66 @@
         </div>
         <script src="lib/jquery.js"></script>
         <script src="lib/bootstrap/js/bootstrap.js"></script>
+
+
+
+
+
+        <script>
+
+
+        var obj = {
+            brand: 'test',
+            color: 'test',
+            depth: 'test',
+            height: 'test',
+            isRelatedTo: 'test',
+            isSimilarTo: 'test',
+            itemCondition: 'test',
+            logo: 'test',
+            manufacturer: 'test',
+            model: 'test',
+            mpn: 'test',
+            productID: 'test',
+            releaseDate: 'test',
+            review: 'test',
+            sku: 'test',
+            weight: 'test',
+            width: 'test',
+            alternateName: 'test',
+            description: 'test',
+            image: 'test',
+            name: 'test',
+            url: 'test'
+        };
+
+
+        var req = $.ajax({
+            url: '/product',
+            type: 'post',
+            data:obj,
+            dataType:'json'
+        });
+
+
+        req.done(function(d){
+            console.log(d);
+        });
+
+        req.fail(function(e){
+            console.log(e);
+        });
+
+
+
+
+
+
+
+        </script>
+
+
+
+
     </body>
 </html>

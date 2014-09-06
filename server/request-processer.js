@@ -1,6 +1,68 @@
 var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs-extra');
+var productService = require("../app/service/product-service");
+var log = require('../app/logger/logger').logger("request-processor");
+
+
+exports.addProduct = function(req, res, callback) {
+    log.debug('addProduct');
+    var obj = {
+        brand: req.param('brand')
+    };
+    productService.addProduct(obj, function(returnValue) {
+        res.json(returnValue);
+    });
+};
+
+exports.editProduct = function(req, res, callback) {
+    log.debug('editproduct');
+    var obj = {
+        brand: req.param('brand'),
+        id: req.param('id')
+    };
+    productService.editProduct(obj, function(returnValue) {
+        res.json(returnValue);
+    });
+};
+
+exports.removeProduct = function(req, res, callback) {
+    log.debug("removeProduct");
+    console.log('request-processor');
+    var id = req.param('id');
+    console.log(id);
+    productService.removeProduct(id, function(returnValue) {
+        res.json(returnValue);
+    });
+};
+
+exports.getProducts = function(req, res, callback) {
+    console.log('request-processor');
+
+    log.debug("getProducts");
+    productService.getProducts(function(returnValue) {
+        res.json(returnValue);
+    });
+};
+
+exports.getProduct = function(req, res, callback) {
+    console.log('request-processor');
+    log.debug("getProduct");
+    var id = req.param('id');
+    console.log(id);
+    productService.getProduct(id, function(returnValue) {
+        res.json(returnValue);
+    });
+};
+
+
+
+
+
+
+
+
+/*
 var Dao = require("../app/db/dao");
 
 exports.saveCategory = function(req, res) {
@@ -54,3 +116,5 @@ exports.getCategories = function(req, res) {
     });
 };
 
+
+*/

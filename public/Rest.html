@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="ecom">
+    <head>
+        <title>Rest</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+        <style>
+        body { margin-top: 50px !important; }        
+        h3{margin-top: 5px!important;}
+        </style>
+    </head>
+    <body ng-controller="restCtrl">
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row" style="margin-bottom:10px;">
+                        <div class="col-md-2">
+                            <h3>Rest</h3>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="btn-group">
+                                <button type="button" id="Create" class="btn btn-default" ng-click="Create()">Create</button>
+                                <button type="button" id="Update" class="btn btn-default" ng-click="Update()">Update</button>
+                                <button type="button" id="Remove" class="btn btn-default" ng-click="Remove()">Remove</button>
+                                <button type="button" id="GetAll" class="btn btn-default" ng-click="GetAll()">GetAll</button>
+                                <button type="button" id="GetOne" class="btn btn-default" ng-click="GetOne()">GetOne</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form name="Form" id="Form" class="form-horizontal" novalidate ng-submit="makeAjax()">
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="brand">brand</label>
+                            <div class="col-md-7">
+                                <input type="text" id="brand" name="brand" class="form-control" placeholder="brand" required ng-model="data.brand">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="lib/angular.js"></script>
+        <script src="js/rest.js"></script>
+    </body>
+</html>

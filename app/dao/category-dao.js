@@ -1,5 +1,5 @@
-var db = require("./connection").db();
-var log = require('../logger/logger').logger("dao");
+var db = require("../db/connection").db();
+var log = require('../logger/logger').logger("category-dao");
 var Category = require('../models/categoryModel');
 
 exports.saveCategory = function(obj, callback) {
