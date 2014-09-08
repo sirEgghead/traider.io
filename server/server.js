@@ -35,7 +35,7 @@ app.get('/admin', function(req, res) {
 
 
 //ADMIN - CATEGORIES
-app.post('/saveCategory', requestProcesser.saveCategory);
+app.post('/addCategory', requestProcesser.addCategory);
 app.get('/getCategories', requestProcesser.getCategories);
 
 

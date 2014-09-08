@@ -5,7 +5,7 @@ var fs = require('fs-extra');
 
 
 var productService = require("../app/service/productService");
-var productService = require("../app/service/categoryService");
+var categoryService = require("../app/service/categoryService");
 
 
 
@@ -59,18 +59,8 @@ exports.getProduct = function(req, res, callback) {
     });
 };
 
-
-
-
-
-
-
-
-/*
-var Dao = require("../app/db/dao");
-
-exports.saveCategory = function(req, res) {
-    console.log('exports.saveCategory = function(req, res) {');
+exports.addCategory = function(req, res) {
+    console.log('exports.addCategory = function(req, res) {');
     var form = new formidable.IncomingForm();
     var x, y;
     form.parse(req, function(err, fields, files) {
@@ -107,7 +97,7 @@ exports.saveCategory = function(req, res) {
         var i = path.resolve(__dirname, '../uploads/' + y.image.name);
         o.thumbnail = t;
         o.image = i;
-        Dao.saveCategory(o, function(returnValue) {
+        Dao.addCategory(o, function(returnValue) {
             res.json(returnValue);
         });
     });
@@ -115,10 +105,7 @@ exports.saveCategory = function(req, res) {
 
 
 exports.getCategories = function(req, res) {
-    Dao.getCategories(function(returnValue) {
+    categoryService.getCategories(function(returnValue) {
         res.json(returnValue);
     });
 };
-
-
-*/
