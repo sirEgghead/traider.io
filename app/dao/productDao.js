@@ -1,5 +1,5 @@
 var db = require("../db/connection").db();
-var log = require('../logger/logger').logger("product-dao");
+var log = require('../logger/logger').logger("productDao");
 var Product = require('../models/productModel');
 
 exports.addProduct = function(obj, callback) {
@@ -36,7 +36,7 @@ exports.editProduct = function(obj, callback) {
 };
 
 exports.removeProduct = function(id, callback) {
-    console.log('product-dao');
+    console.log('productDao');
     console.log(id);
 
     Product.remove({

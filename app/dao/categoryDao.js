@@ -1,5 +1,5 @@
 var db = require("../db/connection").db();
-var log = require('../logger/logger').logger("category-dao");
+var log = require('../logger/logger').logger("categoryDao");
 var Category = require('../models/categoryModel');
 
 exports.saveCategory = function(obj, callback) {
@@ -9,12 +9,12 @@ exports.saveCategory = function(obj, callback) {
 
     var cat = new Category(obj);
     cat.save(function(err, result) {
-        if (!err) {
+        if (!err && result) {
             log.info("Category saved");
-            callback(result);
+            callback('success',result);
         } else {
             log.error("Category not saved" + err);
-            callback(err);
+            callback('failure',err);
         }
     });
 };

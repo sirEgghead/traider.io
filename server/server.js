@@ -2,8 +2,10 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var requestProcesser = require("./request-processer");
+var requestProcesser = require("./requestProcesser");
 var config = require("../config.json");
+
+
 var app = express();
 var pbc = path.join(__dirname, '../public/');
 app.use(express.static(pbc));
@@ -22,44 +24,35 @@ app.set('port', config.server_config.port);
 app.use(express.favicon());
 app.use(express.json());
 app.use(express.urlencoded());
+
+
+
+
 //Routes
 app.get('/admin', function(req, res) {
     res.render('admin.html');
 });
 
+
+//ADMIN - CATEGORIES
+app.post('/saveCategory', requestProcesser.saveCategory);
+app.get('/getCategories', requestProcesser.getCategories);
+
+
+//REST API - PRODUCT
+app.post('/addProduct', requestProcesser.addProduct);
+app.post('/editProduct', requestProcesser.editProduct);
+app.post('/removeProduct', requestProcesser.removeProduct);
+app.get('/getProducts', requestProcesser.getProducts);
+app.get('/getProduct', requestProcesser.getProduct);
+
+
+//FOR REST API Testing purpose
 app.get('/rest', function(req, res) {
     res.render('Rest.html');
 });
 
 
-/*
-app.post('/saveCategory', requestProcesser.saveCategory);
-app.get('/getCategories', requestProcesser.getCategories);
-
-/product	POST	Create a product.
-/products	GET	Get all the products.
-/product/:product_id	GET	Get a single product.
-
-
-
-/product/:product_id	PUT	Update a product with new info.
-/product/:product_id	DELETE	Delete a product.
-
-
-//Create Update Delete GetAll GetOne
-
-
-
-*/
-
-//app.('', requestProcesser.);
-
-app.post('/addProduct', requestProcesser.addProduct);
-app.post('/editProduct', requestProcesser.editProduct);
-app.post('/removeProduct', requestProcesser.removeProduct);
-
-app.get('/getProducts', requestProcesser.getProducts);
-app.get('/getProduct', requestProcesser.getProduct);
 
 app.listen(app.get('port'));
 console.log('Server listening on port ' + app.get('port'));

@@ -1,8 +1,12 @@
+var log = require('../app/logger/logger').logger("requestProcessor");
 var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs-extra');
-var productService = require("../app/service/product-service");
-var log = require('../app/logger/logger').logger("request-processor");
+
+
+var productService = require("../app/service/productService");
+var productService = require("../app/service/categoryService");
+
 
 
 exports.addProduct = function(req, res, callback) {

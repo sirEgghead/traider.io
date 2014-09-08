@@ -1,6 +1,6 @@
-var productDao = require("../dao/product-dao");
+var productDao = require("../dao/productDao");
 var util = require("../util/util");
-var log = require('../logger/logger').logger("product-service");
+var log = require('../logger/logger').logger("productService");
 
 exports.addProduct = function(obj, callback) {
     log.debug("addProduct");
@@ -18,7 +18,7 @@ exports.editProduct = function(obj, callback) {
 
 exports.removeProduct = function(id, callback) {
     log.debug("removeProduct");
-    console.log('product-service');
+    console.log('productService');
     productDao.removeProduct(id, function(msg, returnValue) {
         util.handleErrors(msg, returnValue, callback);
     });
