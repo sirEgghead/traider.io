@@ -10,10 +10,12 @@ var categoryService = require("../app/service/categoryService");
 
 
 exports.addProduct = function(req, res, callback) {
-    log.debug('addProduct');
+    console.log('addProduct');
     var obj = {
         brand: req.param('brand')
     };
+
+    console.log(obj);
     productService.addProduct(obj, function(returnValue) {
         res.json(returnValue);
     });

@@ -22,14 +22,14 @@ app.controller('restCtrl', function($scope, $http) {
     $scope.Update = function() {
         url = '/editProduct';
         method = 'post';
-        $scope.data.id = '540b00e468946074049b36bb';
+        $scope.data.id = "540e0799c7151c1008a15fdb";
     };
 
     $scope.Remove = function() {
         url = '/removeProduct';
         method = 'post';
         $scope.data = {
-            id: '540b357e3903336c1bb3969e'
+            id: '540e0799c7151c1008a15fdb'
         };
     };
 
@@ -43,16 +43,17 @@ app.controller('restCtrl', function($scope, $http) {
 
     $scope.makeAjax = function() {
         console.log($scope.data);
-        /*
+        
         $http[method](url, $scope.data).then(function(obj) {
             console.log(obj.data.message);
         }, function(e) {
             console.log(e);
         });
-*/
 
 
-        $http({
+
+
+        /*$http({
             url: url,
             method: 'GET',
             data:{id: "540b5c0e91cba39419322c41"}
@@ -60,7 +61,7 @@ app.controller('restCtrl', function($scope, $http) {
             console.log(obj.data.message);
         }, function(e) {
             console.log(e);
-        });
+        });*/
 
     };
 });
