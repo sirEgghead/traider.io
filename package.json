@@ -1,22 +1,11 @@
 {
-    "name": "ECOMM",
-    "description": "Ecommerce Platform",
-    "author": "Ramesh Meduri",
+    "name": "Traider",
+    "description": "MEAN stack Ecommerce Platform",
+    "author": "Eastpoint",
     "version": "0.0.1",
     "private": true,
-    "scripts": {
-        "start": "node server/server.js"
+    "scripts": { 
     },
-    "dependencies": {
-        "connect-flash": "0.1.1",
-        "crypto": "0.0.3",
-        "ejs": "1.0.0",
-        "express": "3.4.4",
-        "fs-extra": "^0.11.0",
-        "log4js": "0.6.16",
-        "mongoose": "3.8.15",
-        "passport": "0.2.0",
-        "passport-local": "1.0.0",
-        "formidable": "1.0.15"
+    "dependencies": { 
     }
 }
