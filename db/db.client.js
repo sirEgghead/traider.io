@@ -6,7 +6,7 @@ var MongoClient = mongo.MongoClient,
 
 
 exports.getDbClient = function() {
-    return new MongoClient(new Server("127.0.0.1", 27017), {
+    return new MongoClient(new Server(process.env.DB_1_PORT_27017_TCP_ADDR, 27017), {
         native_parser: true
     });
 };
